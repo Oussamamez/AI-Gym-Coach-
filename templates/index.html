@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Gym Plan Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>GymAI</span>
+                </div>
+                <p class="tagline">Your personalized AI-powered fitness coach</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="split-layout">
+                <!-- Form Panel -->
+                <div class="form-panel">
+                    <div class="form-card">
+                        <h2 class="form-title">
+                            <i class="fas fa-sliders"></i>
+                            Build Your Plan
+                        </h2>
+
+                        <form id="gymForm">
+                            <div class="form-section">
+                                <h3 class="section-label">Core Goals <span class="required">*</span></h3>
+
+                                <div class="form-group">
+                                    <label for="goal">Primary Fitness Goal</label>
+                                    <div class="goal-grid">
+                                        <button type="button" class="goal-btn" data-value="Build muscle and increase strength">
+                                            <i class="fas fa-fire"></i>
+                                            <span>Build Muscle</span>
+                                        </button>
+                                        <button type="button" class="goal-btn" data-value="Lose weight and burn fat">
+                                            <i class="fas fa-bolt"></i>
+                                            <span>Lose Weight</span>
+                                        </button>
+                                        <button type="button" class="goal-btn" data-value="Improve overall fitness and endurance">
+                                            <i class="fas fa-heart-pulse"></i>
+                                            <span>Get Fit</span>
+                                        </button>
+                                        <button type="button" class="goal-btn" data-value="Athletic performance and sport-specific training">
+                                            <i class="fas fa-trophy"></i>
+                                            <span>Athletic</span>
+                                        </button>
+                                        <button type="button" class="goal-btn" data-value="Body recomposition - lose fat and gain muscle simultaneously">
+                                            <i class="fas fa-arrows-rotate"></i>
+                                            <span>Recomp</span>
+                                        </button>
+                                        <button type="button" class="goal-btn" data-value="Improve flexibility and mobility">
+                                            <i class="fas fa-person-stretching"></i>
+                                            <span>Flexibility</span>
+                                        </button>
+                                    </div>
+                                    <input type="hidden" id="goal" name="goal" required>
+                                    <input type="text" class="custom-goal-input" id="customGoal" placeholder="Or describe your specific goal...">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Fitness Level <span class="required">*</span></label>
+                                    <div class="level-btns">
+                                        <button type="button" class="level-btn" data-value="Beginner (0-1 years of training)">
+                                            <span class="level-icon">🌱</span>
+                                            <span>Beginner</span>
+                                            <small>0-1 years</small>
+                                        </button>
+                                        <button type="button" class="level-btn" data-value="Intermediate (1-3 years of training)">
+                                            <span class="level-icon">💪</span>
+                                            <span>Intermediate</span>
+                                            <small>1-3 years</small>
+                                        </button>
+                                        <button type="button" class="level-btn" data-value="Advanced (3+ years of training)">
+                                            <span class="level-icon">🏆</span>
+                                            <span>Advanced</span>
+                                            <small>3+ years</small>
+                                        </button>
+                                    </div>
+                                    <input type="hidden" id="fitness_level" name="fitness_level" required>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3 class="section-label">Schedule & Equipment</h3>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="days_per_week">Days per Week</label>
+                                        <div class="days-selector">
+                                            <div class="days-display" id="daysDisplay">3</div>
+                                            <input type="range" id="days_per_week" name="days_per_week" min="2" max="6" value="3" class="days-slider">
+                                            <div class="days-labels">
+                                                <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="duration">Session Duration (min)</label>
+                                        <div class="duration-btns">
+                                            <button type="button" class="duration-btn" data-value="30">30</button>
+                                            <button type="button" class="duration-btn active" data-value="45">45</button>
+                                            <button type="button" class="duration-btn" data-value="60">60</button>
+                                            <button type="button" class="duration-btn" data-value="90">90</button>
+                                        </div>
+                                        <input type="hidden" id="duration" name="duration" value="45">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Available Equipment</label>
+                                    <div class="equipment-grid">
+                                        <label class="equipment-chip">
+                                            <input type="checkbox" value="Full gym (barbells, dumbbells, cables, machines)"> Full Gym
+                                        </label>
+                                        <label class="equipment-chip">
+                                            <input type="checkbox" value="Dumbbells"> Dumbbells
+                                        </label>
+                                        <label class="equipment-chip">
+                                            <input type="checkbox" value="Barbell and plates"> Barbell
+                                        </label>
+                                        <label class="equipment-chip">
+                                            <input type="checkbox" value="Resistance bands"> Bands
+                                        </label>
+                                        <label class="equipment-chip">
+                                            <input type="checkbox" value="Pull-up bar"> Pull-up Bar
+                                        </label>
+                                        <label class="equipment-chip">
+                                            <input type="checkbox" value="Kettlebells"> Kettlebells
+                                        </label>
+                                        <label class="equipment-chip">
+                                            <input type="checkbox" value="No equipment (bodyweight only)"> Bodyweight Only
+                                        </label>
+                                        <label class="equipment-chip">
+                                            <input type="checkbox" value="Cable machine"> Cables
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3 class="section-label">Personal Details (Optional)</h3>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="age">Age</label>
+                                        <input type="number" id="age" name="age" placeholder="e.g. 28" min="16" max="80" class="text-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="injuries">Injuries / Limitations</label>
+                                        <input type="text" id="injuries" name="injuries" placeholder="e.g. bad knees, lower back pain" class="text-input">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="additional">Additional Notes</label>
+                                    <textarea id="additional" name="additional" placeholder="Any other details about your training preferences, schedule, or specific requests..." rows="2" class="text-input"></textarea>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="generate-btn" id="generateBtn">
+                                <i class="fas fa-wand-magic-sparkles"></i>
+                                Generate My Gym Plan
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Results Panel -->
+                <div class="results-panel" id="resultsPanel">
+                    <div class="results-placeholder" id="resultsPlaceholder">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <h3>Your personalized plan will appear here</h3>
+                            <p>Fill in your details and click Generate to get a custom workout plan powered by AI.</p>
+                            <div class="feature-list">
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Tailored to your fitness level</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Based on your available equipment</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Progressive overload built in</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Recovery & nutrition tips included</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="results-content" id="resultsContent" style="display:none;">
+                        <div class="results-header">
+                            <h2><i class="fas fa-clipboard-list"></i> Your Gym Plan</h2>
+                            <div class="results-actions">
+                                <button class="action-btn" id="copyBtn" title="Copy to clipboard">
+                                    <i class="fas fa-copy"></i> Copy
+                                </button>
+                                <button class="action-btn" id="printBtn" title="Print plan">
+                                    <i class="fas fa-print"></i> Print
+                                </button>
+                            </div>
+                        </div>
+                        <div class="plan-output" id="planOutput"></div>
+                    </div>
+
+                    <div class="loading-overlay" id="loadingOverlay" style="display:none;">
+                        <div class="loading-content">
+                            <div class="loading-animation">
+                                <div class="barbell-container">
+                                    <div class="barbell">
+                                        <div class="plate left"></div>
+                                        <div class="bar"></div>
+                                        <div class="plate right"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="loading-text">Building your personalized plan...</p>
+                            <p class="loading-sub">This usually takes 10-20 seconds</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
