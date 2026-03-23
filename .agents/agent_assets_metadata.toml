@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "9yc1yldIl87AIykXIyKDv"
+uri = "file://GymAI_Project_Report.pdf"
+type = "pdf"
+title = "GymAI Project Report"
