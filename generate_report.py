@@ -292,7 +292,7 @@ def build_file_structure(s, elements):
         "GymAI/\n"
         "├── main.py                  ← Flask app + plan generation engine\n"
         "├── generate_report.py       ← PDF report generator (this document)\n"
-        "├── replit.md                ← Project documentation\n"
+        "├── readme.md                ← Project documentation\n"
         "├── pyproject.toml           ← Python project config & dependencies\n"
         "├── templates/\n"
         "│   └── index.html           ← Single-page UI with all form controls\n"

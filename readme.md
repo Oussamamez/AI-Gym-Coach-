@@ -31,10 +31,11 @@ python main.py
 ## File Structure
 ```
 main.py              # Flask app + plan generator logic
+generate_report.py   # PDF report generator
+readme.md            # This file
 templates/
   index.html         # Single-page UI
 static/
   css/style.css      # Dark theme styles
   js/app.js          # Form interaction + SSE streaming
-replit.md            # This file
 ```
