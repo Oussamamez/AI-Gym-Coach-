@@ -592,7 +592,6 @@ def generate():
     s = build_styles()
     elements = []
 
-    build_cover(s, elements)
     build_overview(s, elements)
     build_tech_stack(s, elements)
     build_file_structure(s, elements)
