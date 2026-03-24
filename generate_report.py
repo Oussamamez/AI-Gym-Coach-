@@ -254,7 +254,6 @@ def build_overview(s, elements):
     elements += sub_title("Key Objectives", s)
     elements += bullet_list([
         "Provide instant, personalized workout plans based on user input",
-        "Work fully offline/without any API key via a smart built-in generator",
         "Support a wide range of goals, levels, and equipment configurations",
         "Present plans in a clean, readable, printable format",
         "Allow seamless upgrade to AI-powered generation (OpenAI GPT-4o)",
