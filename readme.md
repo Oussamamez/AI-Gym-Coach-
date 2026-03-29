@@ -1,5 +1,13 @@
 # GymAI - AI Gym Plan Generator
 
+<img width="1120" height="820" alt="Capture d&#39;écran 2026-03-29 161815" src="https://github.com/user-attachments/assets/bf73aaec-1d9f-4acd-8b84-5e45d616dc2b" />
+<img width="1120" height="803" alt="Capture d&#39;écran 2026-03-29 162052" src="https://github.com/user-attachments/assets/ea864902-0297-4b60-a1d6-6361f8cad4f3" />
+<img width="1119" height="814" alt="Capture d&#39;écran 2026-03-29 162104" src="https://github.com/user-attachments/assets/3e0185ca-4bbe-4f4d-b9f4-351b79977678" />
+<img width="1115" height="810" alt="Capture d&#39;écran 2026-03-29 161741" src="https://github.com/user-attachments/assets/0b15bd7e-a131-4f59-865d-67011eafc9ce" />
+<img width="1119" height="808" alt="Capture d&#39;écran 2026-03-29 161757" src="https://github.com/user-attachments/assets/6261e882-32b1-4bed-ae5e-04ce93533679" />
+
+
+
 ## Overview
 A personalized gym workout plan generator built with Flask. Creates detailed, customized workout plans based on user inputs including fitness goals, level, schedule, and available equipment.
 
